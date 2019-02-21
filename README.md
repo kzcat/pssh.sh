@@ -16,8 +16,17 @@ Options:
     SSH Options    see OpenSSH client man page
 ```
 
-## Example
+## Install Example
+```console
+# install script
+$ sudo install pssh.sh /usr/bin/pssh
+# install bash-completion
+$ sudo install -m644 pssh-bash-completion /usr/share/bash-completion/completions/pssh
 ```
+
+
+## Example
+```console
 $ pssh.sh host1 host2 host3 host4 -- df /
 Filesystem           1K-blocks     Used Available Use% Mounted on
 /dev/mapper/vg_db01-lv_root
@@ -34,7 +43,7 @@ Filesystem           1K-blocks     Used Available Use% Mounted on
 ```
 
 `-Z` option to print each result on one line.
-```
+```console
 $ pssh.sh -Z host1 host2 host3 host4 -- md5sum .ssh/authorized_keys
 host1> e1ae16b5792f8c2d6e48e3f87644ddb8 .ssh/authorized_keys [0]
 host2> e1ae16b5792f8c2d6e48e3f87644ddb8 .ssh/authorized_keys [0]
@@ -43,7 +52,7 @@ host4> e1ae16b5792f8c2d6e48e3f87644ddb8 .ssh/authorized_keys [0]
 ```
 
 Brace expantion is useful to specify hostnames.
-```
+```console
 $ pssh.sh -Z host{1..2}{1..2} -- uptime
 host11> 11:46:16 up 30 days, 1:56, 0 users, load average: 0.36, 0.58, 0.63 [0]
 host12> 11:46:16 up 30 days, 1:56, 0 users, load average: 0.37, 0.54, 0.59 [0]
